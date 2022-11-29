@@ -6,7 +6,7 @@ public class Actor : MonoBehaviour
 {
     private Vector3 Position;
     
-    private ActorStates state;
+    private ActorStates state = ActorStates.Starting;
     
     
     

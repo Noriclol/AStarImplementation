@@ -7,6 +7,7 @@ public class Node
     
     public float G;
     public float H;
+
     public float F;
     
     public Vector3 Position;
@@ -19,6 +20,7 @@ public class Node
     {
         this.cellSize = cellSize;
         Neighbours = new List<Vector3>();
+        Passable = true;
     }
 
     public void AddNeighbours()
@@ -28,16 +30,16 @@ public class Node
         var adjacent = new Vector3[]
         {
             // Horizontal Vertical
-            new Vector3(1, 0, 0),
-            new Vector3(0, 0, 1),
-            new Vector3(-1, 0, 0),
-            new Vector3(0, 0, -1),
+            new Vector3(1, 0, 0) + Position,
+            new Vector3(0, 0, 1) + Position,
+            new Vector3(-1, 0, 0) + Position,
+            new Vector3(0, 0, -1) + Position,
             
             // Diagonals
-            new Vector3(1, 0, 1),
-            new Vector3(1, 0, -1),
-            new Vector3(-1, 0, 1),
-            new Vector3(-1, 0, -1),
+            new Vector3(1, 0, 1) + Position,
+            new Vector3(1, 0, -1) + Position,
+            new Vector3(-1, 0, 1) + Position,
+            new Vector3(-1, 0, -1) + Position,
         };
 
 
@@ -57,6 +59,16 @@ public class Node
         
     }
 
+    public void CalculateHCost()
+    {
+        
+    }
+
+    public void CalculateGCost()
+    {
+        
+    }
+    
     public override int GetHashCode()
     {
         return F.GetHashCode() + G.GetHashCode() + H.GetHashCode() + Position.GetHashCode();
